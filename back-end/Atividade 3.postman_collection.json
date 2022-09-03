@@ -1,0 +1,407 @@
+{
+	"info": {
+		"_postman_id": "1b30c634-3520-479d-b971-d9112a978d10",
+		"name": "Atividade 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Security",
+			"item": [
+				{
+					"name": "Generate token",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "senha123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "mandacaru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "almada@crateus.ufc.br",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "senha123",
+									"type": "default"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8083/oauth/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/usuarios/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by name",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsibWFuZGFjYXJ1Il0sInVzZXJfaWQiOi0xMDY4MzQxMDA3LCJ1c2VyX25hbWUiOiJpbWFyaW8uYWxtZWlkYTIzQGdtYWlsLmNvbSIsInNjb3BlIjpbImFwcGxpY2F0aW9uIl0sImV4cCI6MTY2MjE5NDg0NCwianRpIjoicjc4VThCdmVlbXV5cmNnRC1PMW81VVJBMTFBIiwiY2xpZW50X2lkIjoibWFuZGFjYXJ1In0.f3FXniywQeJ8LxlyOsnjD2TqE94xWy4kQWaX-C9qBHI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/usuarios/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all users",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsibWFuZGFjYXJ1Il0sInVzZXJfaWQiOi04NzgwMTkyMjIsInVzZXJfbmFtZSI6ImltYXJpb0BjcmF0ZXVzLnVmYy5iciIsInNjb3BlIjpbImFwcGxpY2F0aW9uIl0sImV4cCI6MTY2MjA1MTI4MCwiYXV0aG9yaXRpZXMiOlsiVVNFUiIsIkFETUlOIl0sImp0aSI6IkhOWDZxbkVVT21LSFkzTml2QTNBQkE1NlFMZyIsImNsaWVudF9pZCI6Im1hbmRhY2FydSJ9.CGmhB2BO2rh_nJf5yROXuuT6nvrqNFv2xOyzVLbxN6w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Almeida\",\n    \"email\":\"imario.almeida22@gmail.com\",\n    \"password\":\"malukobelez4\",\n    \"cpf\":\"085.958.456-98\",\n    \"tel\":\"(85)996583256\",\n    \"address\":\"Rua do bobo N 0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/usuarios/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"usuarios",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/usuarios/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"usuarios",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Announcement",
+			"item": [
+				{
+					"name": "add announcements",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"owner\": \"João\",\n    \"type\": \"Flat\",\n    \"state\": \"CE\",\n    \"city\": \"Fortaleza\",\n    \"district\": \"Boa Vista\",\n    \"street\": \"Rua 28\",\n    \"number_house\": \"58\",\n    \"price\": 15000,\n    \"m_square_ground\": 500,\n    \"m_square_built\": 450,\n    \"qt_bathrooms\": 2,\n    \"qt_bedrooms\": 2,\n    \"qt_garage_spaces\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/usuarios/10/announcements",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"usuarios",
+								"10",
+								"announcements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all announcements",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/announcements/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"announcements",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit announcement",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/announcements/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"announcements",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete announcement",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/announcements/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"announcements",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search by city",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/announcements/search?city=\"Fortaleza\"",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"announcements",
+								"search"
+							],
+							"query": [
+								{
+									"key": "city",
+									"value": "\"Fortaleza\""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PdSign",
+			"item": [
+				{
+					"name": "Get process",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/posts/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"posts",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create process",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsibWFuZGFjYXJ1Il0sInVzZXJfaWQiOi04MzY4MzIwODMsInVzZXJfbmFtZSI6ImltYXJpby5hbG1laWRhMjNAZ21haWwuY29tIiwic2NvcGUiOlsiYXBwbGljYXRpb24iXSwiZXhwIjoxNjYyMTI1OTY0LCJqdGkiOiI3TkUzemJod3B4WXItS1hIOWo4R25Kam9qS28iLCJjbGllbnRfaWQiOiJtYW5kYWNhcnUifQ.DC3WZkLWtbV5pZFcrq_EC4H_zTY4GbleluQjN-0jjaI",
+			"type": "default"
+		}
+	]
+}
