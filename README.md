@@ -25,6 +25,6 @@ Time: Antonio César, Dheymison Nunes, Imario Almeida, Samuel Henrique
   * Repository
   * RESTful API
   
-## Observações
+## 3. Observações
   * Por motivos de sergurança, a integração da API PDSign está emum repositório privado
   * O JSON disponibilizado foi gerado no postman com a demonstração das requisições
